@@ -1,33 +1,67 @@
 import React from "react";
 import { motion } from "framer-motion";
-const steps = [
-  {
-    num: "01",
-    title: "Reach out",
-    description:
-      "Call, text, or email us. We speak plain English (y Español) and are ready to listen to your needs.",
-  },
-  {
-    num: "02",
-    title: "Upload securely",
-    description:
-      "Snap a photo of your documents with your phone and upload them to our secure Client Portal.",
-  },
-  {
-    num: "03",
-    title: "We prepare",
-    description:
-      "Our experts review your files, ask any necessary questions, and prepare everything accurately.",
-  },
-  {
-    num: "04",
-    title: "You approve",
-    description:
-      "Review the final documents online, sign digitally, and we handle the filing or finalizing.",
-  },
-];
+import { useI18n } from "../i18n";
 
 export function HowItWorks() {
+  const { lang } = useI18n();
+
+  const stepsByLang: Record<string, any[]> = {
+    en: [
+      {
+        num: "01",
+        title: "Reach out",
+        description:
+          "Call, text, or email us. We speak plain English (y Español) and are ready to listen to your needs.",
+      },
+      {
+        num: "02",
+        title: "Upload securely",
+        description:
+          "Snap a photo of your documents with your phone and upload them to our secure Client Portal.",
+      },
+      {
+        num: "03",
+        title: "We prepare",
+        description:
+          "Our experts review your files, ask any necessary questions, and prepare everything accurately.",
+      },
+      {
+        num: "04",
+        title: "You approve",
+        description:
+          "Review the final documents online, sign digitally, and we handle the filing or finalizing.",
+      },
+    ],
+    es: [
+      {
+        num: "01",
+        title: "Contacta",
+        description:
+          "Llama, envía un mensaje de texto o un correo electrónico. Hablamos español e inglés y estamos listos para escuchar tus necesidades.",
+      },
+      {
+        num: "02",
+        title: "Sube de forma segura",
+        description:
+          "Toma una foto de tus documentos con tu teléfono y súbelos a nuestro portal seguro.",
+      },
+      {
+        num: "03",
+        title: "Nosotros preparamos",
+        description:
+          "Nuestros expertos revisan tus archivos, hacen las preguntas necesarias y preparan todo con precisión.",
+      },
+      {
+        num: "04",
+        title: "Tú apruebas",
+        description:
+          "Revisa los documentos finales en línea, firma digitalmente y nosotros nos encargamos del envío o la finalización.",
+      },
+    ],
+  };
+
+  const steps = stepsByLang[lang] || stepsByLang.en;
+
   return (
     <section id="how-it-works" className="py-16 sm:py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,28 +1,15 @@
 import React, { useState } from "react";
 import { Menu, X, Upload } from "lucide-react";
+import { useI18n } from "../i18n";
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useI18n();
   const navLinks = [
-    {
-      name: "Services",
-      href: "#services",
-    },
-    {
-      name: "How It Works",
-      href: "#how-it-works",
-    },
-    {
-      name: "About",
-      href: "#about",
-    },
-    {
-      name: "Resources",
-      href: "#resources",
-    },
-    {
-      name: "Contact",
-      href: "#contact",
-    },
+    { name: t("services"), href: "#services" },
+    { name: t("howItWorks"), href: "#how-it-works" },
+    { name: t("about"), href: "#about" },
+    { name: t("resources"), href: "#resources" },
+    { name: t("contact"), href: "#contact" },
   ];
 
   return (
@@ -67,7 +54,7 @@ export function Header() {
             </a>
             <button className="bg-orange hover:bg-[#d95a15] text-white px-6 py-2.5 rounded font-medium flex items-center gap-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream shadow-sm">
               <Upload size={18} />
-              Client Portal
+              {t("clientPortal")}
             </button>
           </div>
 
@@ -104,11 +91,11 @@ export function Header() {
                 href="tel:+18005550199"
                 className="text-lg font-medium text-navy"
               >
-                Call: (800) 555-0199
+                {t("call")} (800) 555-0199
               </a>
               <button className="bg-orange text-white px-4 py-3 rounded font-medium flex items-center justify-center gap-2 w-full">
                 <Upload size={20} />
-                Open Client Portal
+                {t("clientPortal")}
               </button>
             </div>
           </div>

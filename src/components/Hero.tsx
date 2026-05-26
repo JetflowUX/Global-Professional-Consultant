@@ -1,7 +1,48 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Upload, Phone, CheckCircle2 } from "lucide-react";
+import { useI18n } from "../i18n";
 export function Hero() {
+  const { t, lang } = useI18n();
+
+  const translations: Record<string, any> = {
+    en: {
+      eyebrow: "Trusted Advisory Solutions",
+      title: "Taxes, loans, and big decisions — handled from your couch.",
+      blurb:
+        "We provide professional tax preparation, real estate, and financial services entirely online. Secure, simple, and always with a human touch.",
+      upload: "Upload Your Documents",
+      call: "Book a Free Call",
+      bullets: [
+        "IRS-Authorized",
+        "Licensed Broker",
+        "10+ Years",
+        "Bilingual Support",
+      ],
+      fileName: "W-2_2023.pdf",
+      uploaded: "Uploaded successfully",
+    },
+    es: {
+      eyebrow: "Soluciones de Asesoría Confiable",
+      title:
+        "Impuestos, préstamos y decisiones importantes — manejadas desde tu sofá.",
+      blurb:
+        "Ofrecemos preparación de impuestos, bienes raíces y servicios financieros completamente en línea. Seguro, sencillo y siempre con un toque humano.",
+      upload: "Sube Tus Documentos",
+      call: "Reserva una Llamada",
+      bullets: [
+        "Autorizado por el IRS",
+        "Corredor Licenciado",
+        "10+ Años",
+        "Soporte Bilingüe",
+      ],
+      fileName: "W-2_2023.pdf",
+      uploaded: "Subido con éxito",
+    },
+  };
+
+  const L = translations[lang];
+
   return (
     <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,44 +63,42 @@ export function Hero() {
             className="max-w-2xl mx-auto md:mx-0"
           >
             <span className="editorial-accent text-navy text-xl md:text-2xl mb-6 block">
-              Trusted Advisory Solutions
+              {L.eyebrow}
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-navy leading-[1.1] mb-6">
-              Taxes, loans, and big decisions — handled from your couch.
+              {L.title}
             </h1>
             <p className="text-lg md:text-xl text-black/80 mb-10 max-w-lg leading-relaxed">
-              We provide professional tax preparation, real estate, and
-              financial services entirely online. Secure, simple, and always
-              with a human touch.
+              {L.blurb}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button className="bg-orange hover:bg-[#d95a15] text-white px-6 md:px-8 py-4 rounded font-medium text-lg flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream w-full sm:w-auto">
                 <Upload size={20} />
-                Upload Your Documents
+                {L.upload}
               </button>
               <button className="border-2 border-navy text-navy hover:bg-navy hover:text-white px-6 md:px-8 py-4 rounded font-medium text-lg flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:ring-offset-cream w-full sm:w-auto">
                 <Phone size={20} />
-                Book a Free Call
+                {L.call}
               </button>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-navy/80">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-orange" />
-                <span>IRS-Authorized</span>
+                <span>{L.bullets[0]}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-orange" />
-                <span>Licensed Broker</span>
+                <span>{L.bullets[1]}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-orange" />
-                <span>10+ Years</span>
+                <span>{L.bullets[2]}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-orange" />
-                <span>Bilingual Support</span>
+                <span>{L.bullets[3]}</span>
               </div>
             </div>
           </motion.div>
@@ -110,8 +149,8 @@ export function Hero() {
                 <CheckCircle2 size={24} className="text-green-600" />
               </div>
               <div>
-                <p className="font-medium text-navy text-sm">W-2_2023.pdf</p>
-                <p className="text-xs text-black/60">Uploaded successfully</p>
+                <p className="font-medium text-navy text-sm">{L.fileName}</p>
+                <p className="text-xs text-black/60">{L.uploaded}</p>
               </div>
             </motion.div>
           </motion.div>

@@ -9,7 +9,51 @@ import {
   File,
   Check,
 } from "lucide-react";
+import { useI18n } from "../i18n";
 export function ClientPortal() {
+  const { lang } = useI18n();
+
+  const L: Record<string, any> = {
+    en: {
+      eyebrow: "The Client Portal",
+      title: "A secure place for your documents.",
+      blurb:
+        "No fax machines. No driving across town. Just snap a picture with your phone or upload a PDF, and we'll take it from there.",
+      items: [
+        "Bank-level encryption keeps your data safe",
+        "100% mobile-friendly — use it from anywhere",
+        "Documents neatly organized by tax year",
+        "Accessible 24/7 whenever you need them",
+      ],
+      openPortal: "Open Client Portal",
+      uploadHeading: "Upload Documents",
+      taxYear: "Tax Year 2023",
+      tapToUpload: "Tap to upload",
+      dragDrop: "or drag and drop files here",
+      uploadedFiles: "Uploaded Files",
+      submit: "Submit Documents",
+    },
+    es: {
+      eyebrow: "El Portal del Cliente",
+      title: "Un lugar seguro para tus documentos.",
+      blurb:
+        "Sin faxes. Sin tener que desplazarte. Simplemente toma una foto con tu teléfono o sube un PDF, y nos encargamos del resto.",
+      items: [
+        "Cifrado a nivel bancario para mantener tus datos seguros",
+        "100% compatible con dispositivos móviles — úsalo desde cualquier lugar",
+        "Documentos organizados por año fiscal",
+        "Accesible 24/7 cuando lo necesites",
+      ],
+      openPortal: "Abrir Portal del Cliente",
+      uploadHeading: "Subir Documentos",
+      taxYear: "Año Fiscal 2023",
+      tapToUpload: "Toca para subir",
+      dragDrop: "o arrastra y suelta archivos aquí",
+      uploadedFiles: "Archivos Subidos",
+      submit: "Enviar Documentos",
+    },
+  }[lang];
+
   return (
     <section className="py-16 sm:py-24 bg-navy text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,47 +76,33 @@ export function ClientPortal() {
             }}
           >
             <span className="editorial-accent text-orange text-xl mb-4 block">
-              The Client Portal
+              {L.eyebrow}
             </span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-              A secure place for your documents.
+              {L.title}
             </h2>
             <p className="text-lg text-white/80 mb-10 leading-relaxed">
-              No fax machines. No driving across town. Just snap a picture with
-              your phone or upload a PDF, and we'll take it from there.
+              {L.blurb}
             </p>
 
             <ul className="space-y-6 mb-12">
-              {[
-                {
-                  icon: ShieldCheck,
-                  text: "Bank-level encryption keeps your data safe",
-                },
-                {
-                  icon: Smartphone,
-                  text: "100% mobile-friendly — use it from anywhere",
-                },
-                {
-                  icon: FolderOpen,
-                  text: "Documents neatly organized by tax year",
-                },
-                {
-                  icon: Clock,
-                  text: "Accessible 24/7 whenever you need them",
-                },
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="mt-1 bg-white/10 p-2 rounded-lg text-orange">
-                    <item.icon size={20} />
-                  </div>
-                  <span className="text-lg text-white/90">{item.text}</span>
-                </li>
-              ))}
+              {L.items.map((text: string, i: number) => {
+                const item = [ShieldCheck, Smartphone, FolderOpen, Clock][i];
+                const Icon = item;
+                return (
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="mt-1 bg-white/10 p-2 rounded-lg text-orange">
+                      <Icon size={20} />
+                    </div>
+                    <span className="text-lg text-white/90">{text}</span>
+                  </li>
+                );
+              })}
             </ul>
 
             <button className="bg-orange hover:bg-[#d95a15] text-white px-8 py-4 rounded font-medium text-lg flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-navy">
               <UploadCloud size={20} />
-              Open Client Portal
+              {L.openPortal}
             </button>
           </motion.div>
 
@@ -105,9 +135,9 @@ export function ClientPortal() {
                 {/* App Header */}
                 <div className="bg-white p-6 pt-10 border-b border-navy/5">
                   <h3 className="font-display font-bold text-navy text-xl">
-                    Upload Documents
+                    {L.uploadHeading}
                   </h3>
-                  <p className="text-sm text-black/60">Tax Year 2023</p>
+                  <p className="text-sm text-black/60">{L.taxYear}</p>
                 </div>
 
                 {/* App Body */}
@@ -119,18 +149,16 @@ export function ClientPortal() {
                     </div>
                     <div>
                       <p className="font-medium text-navy text-sm">
-                        Tap to upload
+                        {L.tapToUpload}
                       </p>
-                      <p className="text-xs text-black/50">
-                        or drag and drop files here
-                      </p>
+                      <p className="text-xs text-black/50">{L.dragDrop}</p>
                     </div>
                   </div>
 
                   {/* File List */}
                   <div className="mt-4 space-y-3">
                     <p className="text-xs font-bold text-black/40 uppercase tracking-wider">
-                      Uploaded Files
+                      {L.uploadedFiles}
                     </p>
 
                     {/* File Card 1 */}
@@ -172,7 +200,7 @@ export function ClientPortal() {
                 {/* App Footer */}
                 <div className="bg-white p-4 border-t border-navy/5">
                   <button className="w-full bg-navy text-white py-3 rounded-lg font-medium text-sm">
-                    Submit Documents
+                    {L.submit}
                   </button>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import {
   Landmark,
   ArrowRight,
 } from "lucide-react";
+import { useI18n } from "../i18n";
 const services = [
   {
     title: "Tax Preparation",
@@ -71,6 +72,89 @@ const itemVariants = {
   },
 };
 export function Services() {
+  const { lang } = useI18n();
+
+  const translations: Record<string, any> = {
+    en: {
+      eyebrow: "Everything you need,",
+      accent: "under one roof.",
+      blurb:
+        "Professional services designed for real people. We handle the paperwork so you can handle life.",
+      learnMore: "Learn more",
+      services: [
+        {
+          title: "Tax Preparation",
+          description:
+            "We file your federal and state returns and get you every credit you qualify for. Simple, accurate, and stress-free.",
+        },
+        {
+          title: "Real Estate Brokerage",
+          description:
+            "Buying or selling? We guide you through the process with transparent advice and local market expertise.",
+        },
+        {
+          title: "Insurance Brokerage",
+          description:
+            "Protect your family and assets with policies tailored to your budget and needs.",
+        },
+        {
+          title: "Accounting",
+          description:
+            "Keep your small business finances organized so you can focus on growing your company.",
+        },
+        {
+          title: "Loan Services",
+          description:
+            "Find the right financing options with clear terms and no hidden surprises.",
+        },
+      ],
+    },
+    es: {
+      eyebrow: "Todo lo que necesitas,",
+      accent: "bajo un mismo techo.",
+      blurb:
+        "Servicios profesionales diseñados para personas reales. Nos encargamos del papeleo para que tú te encargues de la vida.",
+      learnMore: "Más información",
+      services: [
+        {
+          title: "Preparación de Impuestos",
+          description:
+            "Presentamos tus declaraciones federales y estatales y obtenemos todos los créditos que te correspondan. Simple, preciso y sin estrés.",
+        },
+        {
+          title: "Corretaje de Bienes Raíces",
+          description:
+            "¿Comprando o vendiendo? Te guiamos durante el proceso con asesoría transparente y experiencia en el mercado local.",
+        },
+        {
+          title: "Corretaje de Seguros",
+          description:
+            "Protege a tu familia y tus bienes con pólizas adaptadas a tu presupuesto y necesidades.",
+        },
+        {
+          title: "Contabilidad",
+          description:
+            "Mantén las finanzas de tu pequeña empresa organizadas para que puedas concentrarte en hacerla crecer.",
+        },
+        {
+          title: "Servicios de Préstamos",
+          description:
+            "Encuentra las opciones de financiamiento adecuadas con términos claros y sin sorpresas.",
+        },
+      ],
+    },
+  };
+
+  const L = translations[lang];
+
+  const localizedServices = services.map((s, i) => ({
+    ...s,
+    title: L.services[i].title,
+    description: L.services[i].description,
+  }));
+
+  const learnMoreText = L.learnMore;
+
   return (
     <section
       id="services"
@@ -79,15 +163,10 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 max-w-2xl">
           <h2 className="text-2xl md:text-4xl font-display font-bold text-navy mb-4">
-            Everything you need,{" "}
-            <span className="editorial-accent text-orange">
-              under one roof.
-            </span>
+            {L.eyebrow}{" "}
+            <span className="editorial-accent text-orange">{L.accent}</span>
           </h2>
-          <p className="text-lg text-black/70">
-            Professional services designed for real people. We handle the
-            paperwork so you can handle life.
-          </p>
+          <p className="text-lg text-black/70">{L.blurb}</p>
         </div>
 
         <motion.div
@@ -100,7 +179,7 @@ export function Services() {
           }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service, index) => {
+          {localizedServices.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
@@ -130,7 +209,7 @@ export function Services() {
                   href="#contact"
                   className={`inline-flex items-center gap-2 font-medium w-fit ${service.isLead ? "text-orange hover:text-white" : "text-navy hover:text-orange"} transition-colors`}
                 >
-                  Learn more{" "}
+                  {learnMoreText}{" "}
                   <ArrowRight
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
