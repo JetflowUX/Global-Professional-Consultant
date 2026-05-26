@@ -72,10 +72,13 @@ const itemVariants = {
 };
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-white border-y border-navy/5">
+    <section
+      id="services"
+      className="py-16 sm:py-24 bg-white border-y border-navy/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-4">
+          <h2 className="text-2xl md:text-4xl font-display font-bold text-navy mb-4">
             Everything you need,{" "}
             <span className="editorial-accent text-orange">
               under one roof.

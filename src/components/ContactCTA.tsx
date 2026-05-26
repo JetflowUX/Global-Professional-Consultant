@@ -2,7 +2,7 @@ import React from "react";
 import { Phone, Mail, Clock, Send } from "lucide-react";
 export function ContactCTA() {
   return (
-    <section id="contact" className="py-24 bg-navy text-white">
+    <section id="contact" className="py-16 sm:py-24 bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left: Info */}
@@ -10,7 +10,7 @@ export function ContactCTA() {
             <span className="editorial-accent text-orange text-xl mb-4 block">
               Get in Touch
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
               Let's talk. Call, text, or send a message.
             </h2>
             <p className="text-lg text-white/80 mb-12 max-w-md">

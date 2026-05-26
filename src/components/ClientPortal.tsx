@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 export function ClientPortal() {
   return (
-    <section className="py-24 bg-navy text-white overflow-hidden">
+    <section className="py-16 sm:py-24 bg-navy text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
@@ -34,7 +34,7 @@ export function ClientPortal() {
             <span className="editorial-accent text-orange text-xl mb-4 block">
               The Client Portal
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
               A secure place for your documents.
             </h2>
             <p className="text-lg text-white/80 mb-10 leading-relaxed">

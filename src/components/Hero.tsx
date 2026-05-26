@@ -24,7 +24,7 @@ export function Hero() {
             <span className="editorial-accent text-navy text-xl md:text-2xl mb-6 block">
               Trusted Advisory Solutions
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-navy leading-[1.1] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-navy leading-[1.1] mb-6">
               Taxes, loans, and big decisions — handled from your couch.
             </h1>
             <p className="text-lg md:text-xl text-black/80 mb-10 max-w-lg leading-relaxed">
