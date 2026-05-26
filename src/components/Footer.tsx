@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 export function Footer() {
   return (
-    <footer className="bg-black text-white pt-20 pb-10">
+    <footer className="bg-black text-white pt-12 md:pt-20 pb-8 md:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
@@ -64,24 +64,24 @@ export function Footer() {
               <li>
                 <a
                   href="#how-it-works"
-                  className="hover:text-orange transition-colors">
-                  
+                  className="hover:text-orange transition-colors"
+                >
                   How It Works
                 </a>
               </li>
               <li>
                 <a
                   href="#about"
-                  className="hover:text-orange transition-colors">
-                  
+                  className="hover:text-orange transition-colors"
+                >
                   About Us
                 </a>
               </li>
               <li>
                 <a
                   href="#resources"
-                  className="hover:text-orange transition-colors">
-                  
+                  className="hover:text-orange transition-colors"
+                >
                   FAQ & Resources
                 </a>
               </li>
@@ -93,8 +93,8 @@ export function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="hover:text-orange transition-colors">
-                  
+                  className="hover:text-orange transition-colors"
+                >
                   Contact
                 </a>
               </li>
@@ -135,6 +135,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Smartphone,
@@ -7,8 +7,8 @@ import {
   Clock,
   UploadCloud,
   File,
-  Check } from
-'lucide-react';
+  Check,
+} from "lucide-react";
 export function ClientPortal() {
   return (
     <section className="py-24 bg-navy text-white overflow-hidden">
@@ -18,19 +18,19 @@ export function ClientPortal() {
           <motion.div
             initial={{
               opacity: 0,
-              x: -20
+              x: -20,
             }}
             whileInView={{
               opacity: 1,
-              x: 0
+              x: 0,
             }}
             viewport={{
-              once: true
+              once: true,
             }}
             transition={{
-              duration: 0.6
-            }}>
-            
+              duration: 0.6,
+            }}
+          >
             <span className="editorial-accent text-orange text-xl mb-4 block">
               The Client Portal
             </span>
@@ -44,30 +44,30 @@ export function ClientPortal() {
 
             <ul className="space-y-6 mb-12">
               {[
-              {
-                icon: ShieldCheck,
-                text: 'Bank-level encryption keeps your data safe'
-              },
-              {
-                icon: Smartphone,
-                text: '100% mobile-friendly — use it from anywhere'
-              },
-              {
-                icon: FolderOpen,
-                text: 'Documents neatly organized by tax year'
-              },
-              {
-                icon: Clock,
-                text: 'Accessible 24/7 whenever you need them'
-              }].
-              map((item, i) =>
-              <li key={i} className="flex items-start gap-4">
+                {
+                  icon: ShieldCheck,
+                  text: "Bank-level encryption keeps your data safe",
+                },
+                {
+                  icon: Smartphone,
+                  text: "100% mobile-friendly — use it from anywhere",
+                },
+                {
+                  icon: FolderOpen,
+                  text: "Documents neatly organized by tax year",
+                },
+                {
+                  icon: Clock,
+                  text: "Accessible 24/7 whenever you need them",
+                },
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-4">
                   <div className="mt-1 bg-white/10 p-2 rounded-lg text-orange">
                     <item.icon size={20} />
                   </div>
                   <span className="text-lg text-white/90">{item.text}</span>
                 </li>
-              )}
+              ))}
             </ul>
 
             <button className="bg-orange hover:bg-[#d95a15] text-white px-8 py-4 rounded font-medium text-lg flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-navy">
@@ -80,28 +80,28 @@ export function ClientPortal() {
           <motion.div
             initial={{
               opacity: 0,
-              y: 30
+              y: 30,
             }}
             whileInView={{
               opacity: 1,
-              y: 0
+              y: 0,
             }}
             viewport={{
-              once: true
+              once: true,
             }}
             transition={{
               duration: 0.6,
-              delay: 0.2
+              delay: 0.2,
             }}
-            className="relative lg:ml-auto w-full max-w-md mx-auto lg:mx-0">
-            
+            className="relative lg:ml-auto w-full max-w-md mx-auto lg:mx-0"
+          >
             {/* Phone Frame */}
             <div className="bg-white rounded-[3rem] p-4 shadow-2xl border-8 border-black/20 relative">
               {/* Notch */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 md:w-32 h-5 md:h-6 bg-black/20 rounded-b-3xl"></div>
 
               {/* Screen */}
-                <div className="bg-cream rounded-[2rem] h-[520px] md:h-[600px] overflow-hidden flex flex-col border border-navy/5">
+              <div className="bg-cream rounded-[2rem] h-[520px] md:h-[600px] overflow-hidden flex flex-col border border-navy/5">
                 {/* App Header */}
                 <div className="bg-white p-6 pt-10 border-b border-navy/5">
                   <h3 className="font-display font-bold text-navy text-xl">
@@ -183,6 +183,6 @@ export function ClientPortal() {
           </motion.div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

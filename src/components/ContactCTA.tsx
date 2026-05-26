@@ -1,5 +1,5 @@
-import React from 'react';
-import { Phone, Mail, Clock, Send } from 'lucide-react';
+import React from "react";
+import { Phone, Mail, Clock, Send } from "lucide-react";
 export function ContactCTA() {
   return (
     <section id="contact" className="py-24 bg-navy text-white">
@@ -21,8 +21,8 @@ export function ContactCTA() {
             <div className="space-y-8">
               <a
                 href="tel:+18005550199"
-                className="flex items-start gap-4 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-lg p-1 -ml-1">
-                
+                className="flex items-start gap-4 group w-full md:w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-lg p-1 md:-ml-1"
+              >
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-orange group-hover:bg-orange group-hover:text-white transition-colors">
                   <Phone size={24} />
                 </div>
@@ -36,8 +36,8 @@ export function ContactCTA() {
 
               <a
                 href="mailto:hello@globalprofessional.com"
-                className="flex items-start gap-4 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-lg p-1 -ml-1">
-                
+                className="flex items-start gap-4 group w-full md:w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-lg p-1 md:-ml-1"
+              >
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-orange group-hover:bg-orange group-hover:text-white transition-colors">
                   <Mail size={24} />
                 </div>
@@ -75,59 +75,59 @@ export function ContactCTA() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-black/70 mb-1.5">
-                    
+                    className="block text-sm font-medium text-black/70 mb-1.5"
+                  >
                     Full Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white"
-                    placeholder="John Doe" />
-                  
+                    placeholder="John Doe"
+                  />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-black/70 mb-1.5">
-                    
+                    className="block text-sm font-medium text-black/70 mb-1.5"
+                  >
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white"
-                    placeholder="(555) 000-0000" />
-                  
+                    placeholder="(555) 000-0000"
+                  />
                 </div>
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-black/70 mb-1.5">
-                  
+                  className="block text-sm font-medium text-black/70 mb-1.5"
+                >
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white"
-                  placeholder="john@example.com" />
-                
+                  placeholder="john@example.com"
+                />
               </div>
 
               <div>
                 <label
                   htmlFor="service"
-                  className="block text-sm font-medium text-black/70 mb-1.5">
-                  
+                  className="block text-sm font-medium text-black/70 mb-1.5"
+                >
                   How can we help you?
                 </label>
                 <select
                   id="service"
-                  className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white appearance-none">
-                  
+                  className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white appearance-none"
+                >
                   <option value="">Select a service...</option>
                   <option value="tax">Tax Preparation</option>
                   <option value="real-estate">Real Estate Brokerage</option>
@@ -141,22 +141,22 @@ export function ContactCTA() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-black/70 mb-1.5">
-                  
+                  className="block text-sm font-medium text-black/70 mb-1.5"
+                >
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-navy/20 focus:border-orange focus:ring-2 focus:ring-orange/20 outline-none transition-all bg-cream/50 focus:bg-white resize-none"
-                  placeholder="Tell us a bit about what you need...">
-                </textarea>
+                  placeholder="Tell us a bit about what you need..."
+                ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-orange hover:bg-[#d95a15] text-white py-4 rounded-lg font-medium text-lg flex items-center justify-center gap-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2">
-                
+                className="w-full bg-orange hover:bg-[#d95a15] text-white py-4 rounded-lg font-medium text-lg flex items-center justify-center gap-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2"
+              >
                 <Send size={20} />
                 Send Message
               </button>
@@ -168,6 +168,6 @@ export function ContactCTA() {
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

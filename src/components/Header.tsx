@@ -44,8 +44,8 @@ export function Header() {
             </div>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav (show on large screens only) */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -57,8 +57,8 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Desktop Actions (show on large screens only) */}
+          <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:+18005550199"
               className="font-medium text-navy hover:text-orange transition-colors"
@@ -71,8 +71,8 @@ export function Header() {
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile menu button (visible until large screens) */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-navy hover:text-orange p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded"
@@ -87,7 +87,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-cream border-t border-navy/10 absolute w-full shadow-lg">
+        <div className="lg:hidden bg-cream border-t border-navy/10 relative w-full shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <a
