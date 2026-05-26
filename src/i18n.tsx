@@ -2,6 +2,20 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 type Lang = "en" | "es";
 
+declare global {
+  interface Window {
+    google?: {
+      translate?: {
+        TranslateElement: new (
+          options: { pageLanguage: string; autoDisplay?: boolean; includedLanguages?: string },
+          elementId: string,
+        ) => unknown;
+      };
+    };
+    googleTranslateElementInit?: () => void;
+  }
+}
+
 const messages: Record<Lang, Record<string, string>> = {
   en: {
     services: "Services",
@@ -33,10 +47,12 @@ const I18nContext = createContext<{
   lang: Lang;
   setLang: (l: Lang) => void;
   t: (key: string) => string;
+  translatePage: (lang: Lang) => void;
 }>({
   lang: "en",
   setLang: () => {},
   t: (k) => k,
+  translatePage: () => {},
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
@@ -49,10 +65,72 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem("lang", lang);
   }, [lang]);
 
+  useEffect(() => {
+    if (window.google?.translate) {
+      window.googleTranslateElementInit?.();
+      return;
+    }
+
+    if (window.document.getElementById("google-translate-script")) {
+      return;
+    }
+
+    window.googleTranslateElementInit = () => {
+      const container = window.document.getElementById("google_translate_element");
+      if (!container || !window.google?.translate) {
+        return;
+      }
+
+      new window.google.translate.TranslateElement(
+        { pageLanguage: "en", autoDisplay: false, includedLanguages: "en,es" },
+        "google_translate_element",
+      );
+
+      window.setTimeout(() => {
+        const select = window.document.querySelector<HTMLSelectElement>(".goog-te-combo");
+        if (!select) {
+          return;
+        }
+
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+      }, 0);
+    };
+
+    const script = window.document.createElement("script");
+    script.id = "google-translate-script";
+    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    window.document.body.appendChild(script);
+  }, []);
+
+  useEffect(() => {
+    const select = window.document.querySelector<HTMLSelectElement>(".goog-te-combo");
+    if (!select) {
+      return;
+    }
+
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  }, [lang]);
+
   const t = (key: string) => messages[lang][key] ?? key;
+
+  const translatePage = (targetLang: Lang) => {
+    setLang(targetLang);
+    const select = window.document.querySelector<HTMLSelectElement>(".goog-te-combo");
+    if (!select) {
+      return;
+    }
+
+    select.value = targetLang;
+    select.dispatchEvent(new Event("change"));
+  };
+
   return (
-    <I18nContext.Provider value={{ lang, setLang, t }}>
+    <I18nContext.Provider value={{ lang, setLang, t, translatePage }}>
       {children}
+      <div id="google_translate_element" aria-hidden="true" className="sr-only" />
     </I18nContext.Provider>
   );
 }
